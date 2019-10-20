@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import { Link } from 'react-router-dom';
 
 const initialState = {
     username: '',
@@ -22,13 +23,13 @@ const Login = (props) => {
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.payload)
-                props.history.push(split)
+                props.history.push('/split')
             })
         setLogin(initialState)
     }
     return (
         <>
-            <h1>Wlcome to Split the Bill App!</h1>
+            <h1>Returning User? Sign in here!</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
@@ -45,16 +46,9 @@ const Login = (props) => {
                     onChange={handlChanges}
                     value={login.password}
                 />
+                <button type='submit'>Login as a User</button>
 
-                <input
-                    type='text'
-                    name='email'
-                    placeholder='email'
-                    onChange={handlChanges}
-                    value={login.email}
-                />
-
-                <button type='submit'>Login</button>
+                <Link to='/register' className='btn'>Register as a User</Link>
             </form>
         </>
     );

@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Componenet, ...rest }) => {
     return (
-        <Route>
+        <Route
             {...rest}
             render={props => {
                 if (localStorage.getItem('token')) {
@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Componenet, ...rest }) => {
                     return <Redirect to='/' />
                 }
             }}
-        </Route>
+        />
     )
 }
 
