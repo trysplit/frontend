@@ -73,6 +73,7 @@ const Register = (props) => {
                     value={register.email}
                 />
             </form>
+            <button>Register</button>
         </>
     )
 }
