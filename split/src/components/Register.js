@@ -23,6 +23,7 @@ const Register = (props) => {
        }
        p {
         font-style: italic;
+        fomt-size: 40px;
         margin: 0;
        }
        button {
