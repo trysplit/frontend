@@ -16,12 +16,13 @@ const Home = () => {
        }
        p {
         font-style: italic;
+        fomt-size: 40px;
         margin: 0;
        }
        button {
            background: #6E588A;
            border-style: none;
-           width: 8rem;
+           width: 80px;
            margin: 1rem;
        }
     `;
