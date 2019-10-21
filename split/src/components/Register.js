@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import styled from 'styled-components'
 
 const initialState = {
     firstname: '',
@@ -10,6 +11,28 @@ const initialState = {
 }
 
 const Register = (props) => {
+
+    const HomeCont = styled.div`
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* height: 100vh; */
+       img {
+           width:25rem;
+       }
+       p {
+        font-style: italic;
+        margin: 0;
+       }
+       button {
+           background: #6E588A;
+           border-style: none;
+           width: 8rem;
+           margin: 1rem;
+       }
+    `;
+
     const [register, setRegister] = useState(initialState)
 
     const handleChanges = e => {
@@ -31,6 +54,7 @@ const Register = (props) => {
 
     return (
         <>
+        <HomeCont>
             <h1>New user registration!</h1>
             <form onSubmit={handleSubmit}>
                 <input
@@ -74,6 +98,8 @@ const Register = (props) => {
                 />
             </form>
             <button>Register</button>
+        </HomeCont>
+            
         </>
     )
 }
