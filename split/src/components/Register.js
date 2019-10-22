@@ -44,7 +44,7 @@ const Register = (props) => {
         e.preventDefault()
         console.log(register)
         axiosWithAuth()
-            .post('./register', register)
+            .post('/auth/register', register)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.payload)

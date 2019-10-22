@@ -33,9 +33,9 @@ const Home = () => {
 
 
             <p>Returning user? click here to log in</p>
-            <Link to='/login'><Button>Log in as customer</Button></Link>
+            <Link to='/login'><Button>Log in</Button></Link>
             <p>New user? click here to register</p>
-            <Link to='/register'><Button>Register as customer</Button></Link>
+            <Link to='/register'><Button>Register</Button></Link>
         </HomeCont>
     )
 }
