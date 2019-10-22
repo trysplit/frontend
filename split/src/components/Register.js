@@ -14,27 +14,27 @@ const initialState = {
 
 const Register = (props) => {
 
-    const HomeCont = styled.div`
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       /* height: 100vh; */
-       img {
-           width:25rem;
-       }
-       p {
-        font-style: italic;
-        fomt-size: 40px;
-        margin: 0;
-       }
-       button {
-           background: #6E588A;
-           border-style: none;
-           width: 8rem;
-           margin: 1rem;
-       }
-    `;
+    // const HomeCont = styled.div`
+    //    display: flex;
+    //    flex-direction: column;
+    //    justify-content: center;
+    //    align-items: center;
+    //    /* height: 100vh; */
+    //    img {
+    //        width:25rem;
+    //    }
+    //    p {
+    //     font-style: italic;
+    //     fomt-size: 40px;
+    //     margin: 0;
+    //    }
+    //    button {
+    //        background: #6E588A;
+    //        border-style: none;
+    //        width: 8rem;
+    //        margin: 1rem;
+    //    }
+    // `;
 
     const [register, setRegister] = useState(initialState)
 
@@ -59,7 +59,7 @@ const Register = (props) => {
 
     return (
         <>
-        <HomeCont>
+        <div>
             <h1>New user registration!</h1>
             <form onSubmit={handleSubmit}>
                 <input
@@ -80,7 +80,7 @@ const Register = (props) => {
                 />
             </form>
             <button>Register</button>
-        </HomeCont>
+        </div>
             
         </>
     )
