@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+
 
 const initialState = {
     username: '',
@@ -11,28 +11,6 @@ const initialState = {
 }
 
 const Login = (props) => {
-
-    const HomeCont = styled.div`
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       /* height: 100vh; */
-       img {
-           width:25rem;
-       }
-       p {
-        font-style: italic;
-        fomt-size: 40px;
-        margin: 0;
-       }
-       button {
-           background: #6E588A;
-           border-style: none;
-           width: 8rem;
-           margin: 1rem;
-       }
-    `;
 
     const [login, setLogin] = useState(initialState)
 
@@ -54,7 +32,7 @@ const Login = (props) => {
     }
     return (
         <>
-          <div className="HomeCont">
+            <div className="LoginForm">
                 <h1>Returning User? Sign in here!</h1>
                   <form onSubmit={handleSubmit}>
                     <input
@@ -63,7 +41,6 @@ const Login = (props) => {
                         placeholder='username'
                         onChange = {handleChanges}
                         value = {login.username}
-                        class=""
                     />
 
                     <input

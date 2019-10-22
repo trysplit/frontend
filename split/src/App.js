@@ -8,6 +8,7 @@ import PrivateRoute from './Routes/PrivateRoute';
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Logout from './components/Logout';
+import './App.css';
 
 function App() {
   return (

@@ -72,7 +72,7 @@ class Split extends React.Component {
                     <input
                         step='any'
                         placeholder='Number of Friends'
-                        name='Number of Friends'
+                        name='numberOfFriends'
                         type='number'
                         value={this.state.bill.numberOfFriends}
                         onChange={this.handleChange}
@@ -81,7 +81,7 @@ class Split extends React.Component {
                     <input
                         step='any'
                         placeholder='Total Cost'
-                        name='number'
+                        name='total'
                         value={this.state.bill.total}
                         onChange={this.handleChange}
                     />
