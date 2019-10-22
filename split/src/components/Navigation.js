@@ -19,6 +19,9 @@ const Naviagtion = (props) => {
             <NavItem>
               <NavLink href="/Register">Register</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/Bill">Bill</NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
