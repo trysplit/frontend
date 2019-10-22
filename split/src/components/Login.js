@@ -36,7 +36,7 @@ const Login = (props) => {
 
     const [login, setLogin] = useState(initialState)
 
-    const handlChanges = e => {
+    const handleChanges = e => {
         setLogin({ ...login, [e.target.name]: e.target.value })
     }
 
@@ -54,29 +54,30 @@ const Login = (props) => {
     }
     return (
         <>
-            <HomeCont>
+          <div className="HomeCont">
                 <h1>Returning User? Sign in here!</h1>
                   <form onSubmit={handleSubmit}>
                     <input
                         type='text'
                         name='username'
                         placeholder='username'
-                        onChange={handlChanges}
-                        value={login.username}
+                        onChange = {handleChanges}
+                        value = {login.username}
+                        class=""
                     />
 
                     <input
                         type='text'
                         name='password'
                         placeholder='password'
-                        onChange={handlChanges}
+                        onChange={handleChanges}
                         value={login.password}
                     />
                      <button type='submit'>Login as a User</button>
 
                      <Link to='/register' className='btn'>Register as a User</Link>
                     </form>
-            </HomeCont>
+            </div>
             
         </>
     );

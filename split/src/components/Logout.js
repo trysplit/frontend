@@ -10,11 +10,8 @@
 
 //     render() {
 //         return (
-//             <button>
-
-//                 OnCLick={this.logout}>
-//                 Log Out
-//         </button>
+//             <button OnCLick={this.logout}>
+//             </button>
 //         )
 //     }
 // }

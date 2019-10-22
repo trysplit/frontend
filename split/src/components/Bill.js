@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-// import Split from './split';
+import Split from '../components/Calculator/Split';
+import styled from 'styled-components'
 // import Input from 
 
 const useStyles = makeStyles(theme => ({
@@ -21,6 +22,29 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Bill() {
+
+    const HomeCont = styled.div`
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* height: 100vh; */
+       img {
+           width:25rem;
+       }
+       p {
+        font-style: italic;
+        fomt-size: 40px;
+        margin: 0;
+       }
+       button {
+           background: #6E588A;
+           border-style: none;
+           width: 8rem;
+           margin: 1rem;
+       }
+    `;
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -34,7 +58,8 @@ export default function Bill() {
    
 
     return (
-        <div>
+        <HomeCont>
+             <div>
             <button type="button" onClick={handleOpen}>
                 Add a Bill
       </button>
@@ -58,45 +83,14 @@ export default function Bill() {
 
 
 
-                        {/* <Split /> */}
-
-
-
-                    {/* <form onSubmit={this.splitBill}>
-                            <h2>Add a Bill</h2>
-                            <input
-                                placeholder="Enter Resturant"
-                                type='text'
-                                name='resturant'
-                                value={this.state.bill.resturant}
-                                onChange={this.handleChange}
-                            />
-
-                            <input
-                                step='any'
-                                placeholder='Number of Friends'
-                                name='Number of Friends'
-                                type='number'
-                                value={this.state.bill.numberOfFriends}
-                                onChange={this.handleChange}
-                            />
-
-                            <input
-                                step='any'
-                                placeholder='Total Cost'
-                                name='number'
-                                value={this.state.bill.total}
-                                onChange={this.handleChange}
-                            />
-
-                            <button type='submit'> Split the Bill!</button>
-
-                        </form> */}
+                 <Split />
 
 
                     </div>
                 </Fade>
             </Modal>
         </div>
+        </HomeCont>
+       
     );
 }

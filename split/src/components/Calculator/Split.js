@@ -24,7 +24,7 @@ class Split extends React.Component {
                 }
             })
         } else {
-            alert('RevieW Bill AGAIN!')
+            alert('Review Bill AGAIN!')
         }
     };
 
@@ -61,7 +61,7 @@ class Split extends React.Component {
             <div classname='split'>
                 <form onSubmit={this.splitBill}>
                     <h2>Add a Bill</h2>
-                    <Input
+                    <input
                         placeholder="Enter Resturant"
                         type='text'
                         name='resturant'
@@ -69,7 +69,7 @@ class Split extends React.Component {
                         onChange={this.handleChange}
                     />
 
-                    <Input
+                    <input
                         step='any'
                         placeholder='Number of Friends'
                         name='Number of Friends'
@@ -78,7 +78,7 @@ class Split extends React.Component {
                         onChange={this.handleChange}
                     />
 
-                    <Input
+                    <input
                         step='any'
                         placeholder='Total Cost'
                         name='number'
