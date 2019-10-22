@@ -1,19 +1,25 @@
 import React from 'react';
-import Bill from './components/Bill'
-import { Route } from 'react-router-dom';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Bill from './components/Bill';
+import Login from './components/Login';
+import Register from './components/Register';
 import PrivateRoute from './Routes/PrivateRoute';
+import Home from './components/Home';
+import Navigation from './components/Navigation';
 
 function App() {
-    return (
-        <div className="App">
-            <Route>
-
-                <h1>Split the Bill</h1>
-                {/* <PrivateRoute exact path='/' component={Bill} /> */}
-                <Bill />
-            </Route>
-
+  return (
+    <Router className='App'>
+      
+      <div>
+        <Navigation />
+        <Route exact path="/" component={Home}/>
+        <Route path='/Login' component={Login} />
+        <Route path='/Register' component={Register} />
+        <Route path="/Bill" component={Bill} />
         </div>
+    </Router >
     )
 }
 

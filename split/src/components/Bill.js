@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-// import Split from './split';
+import Split from '../components/Calculator/Split';
 // import Input from 
 
 const useStyles = makeStyles(theme => ({
@@ -32,6 +32,7 @@ export default function Bill() {
         setOpen(false);
     };
 
+
     return (
         <div>
             <button type="button" onClick={handleOpen}>
@@ -52,45 +53,9 @@ export default function Bill() {
 
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h2 id="transition-modal-title">Transition modal</h2>
+                        <h2 id="transition-modal-title">Split the Bill</h2>
                         <p id="transition-modal-description">react-transition-group animates me.</p>
-
-
-
-                        {/* <Split /> */}
-
-
-
-                        {/* <form onSubmit={this.splitBill}>
-                            <h2>Add a Bill</h2>
-                            <input
-                                placeholder="Enter Resturant"
-                                type='text'
-                                name='resturant'
-                                value={this.state.bill.resturant}
-                                onChange={this.handleChange}
-                            />
-
-                            <input
-                                step='any'
-                                placeholder='Number of Friends'
-                                name='Number of Friends'
-                                type='number'
-                                value={this.state.bill.numberOfFriends}
-                                onChange={this.handleChange}
-                            />
-
-                            <input
-                                step='any'
-                                placeholder='Total Cost'
-                                name='number'
-                                value={this.state.bill.total}
-                                onChange={this.handleChange}
-                            />
-
-                            <button type='submit'> Split the Bill!</button>
-
-                        </form> */}
+                        <Split />
 
 
                     </div>
