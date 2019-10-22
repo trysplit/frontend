@@ -1,13 +1,14 @@
+
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
-const initialState = {
-    username: '',
-    passwor: '',
-    email: ''
-}
+// const initialState = {
+//     username: '',
+//     passwor: '',
+//     email: ''
+// }
 
 const Login = (props) => {
 
@@ -35,9 +36,9 @@ const Login = (props) => {
 
     const [login, setLogin] = useState(initialState)
 
-    const handlChanges = e => {
-        setLogin({ ...login, [e.target.name]: e.target.value })
-    }
+//     const handlChanges = e => {
+//         setLogin({ ...login, [e.target.name]: e.target.value })
+//     }
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -81,4 +82,4 @@ const Login = (props) => {
     );
 };
 
-export default Login;
+// export default Login;
