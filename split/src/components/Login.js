@@ -4,11 +4,11 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
-// const initialState = {
-//     username: '',
-//     passwor: '',
-//     email: ''
-// }
+const initialState = {
+    username: '',
+    passwor: '',
+    email: ''
+}
 
 const Login = (props) => {
 
@@ -36,15 +36,15 @@ const Login = (props) => {
 
     const [login, setLogin] = useState(initialState)
 
-//     const handlChanges = e => {
-//         setLogin({ ...login, [e.target.name]: e.target.value })
-//     }
+    const handlChanges = e => {
+        setLogin({ ...login, [e.target.name]: e.target.value })
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
         console.log(login)
         axiosWithAuth()
-            .post('./login', login)
+            .post('/auth/login', login)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.payload)
@@ -82,4 +82,4 @@ const Login = (props) => {
     );
 };
 
-// export default Login;
+export default Login;

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Split from './split';
+// import Split from './split';
 // import Input from 
 
 const useStyles = makeStyles(theme => ({
@@ -31,6 +31,7 @@ export default function Bill() {
     const handleClose = () => {
         setOpen(false);
     };
+   
 
     return (
         <div>
@@ -57,11 +58,11 @@ export default function Bill() {
 
 
 
-                        <Split />
+                        {/* <Split /> */}
 
 
 
-                        {/* <form onSubmit={this.splitBill}>
+                    {/* <form onSubmit={this.splitBill}>
                             <h2>Add a Bill</h2>
                             <input
                                 placeholder="Enter Resturant"

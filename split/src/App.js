@@ -14,12 +14,12 @@ function App() {
       
       <div>
         <Navigation />
-         <Bill />
         <Route exact path="/" component={Home}/>
         <Route path='/Login' component={Login} />
         <Route path='/Register' component={Register} />
-
+        <Route path="/Bill" component={Bill} />
         </div>
+    </Router >
     )
 }
 
