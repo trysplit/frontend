@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Login from './components/Login';
-import Register from './components/Register';
-import PrivateRoute from './Routes/PrivateRoute';
-
+import React from 'react';
+import Bill from './components/Bill'
 
 function App() {
-  return (
-    <Router className='App'>
-      <div>
-        <Route exact path='/Login' component={Login} />
-        <Route exact path='/Register' component={Register} />
+    return (
+        <div className="App">
+            <h1>Split The Bill</h1>
+            <Bill />
 
-      </div>
-    </Router>
-  )
+        </div>
+    )
 }
 
 export default App;
