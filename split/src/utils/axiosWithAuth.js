@@ -4,8 +4,8 @@ export const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
 
     return axios.create({
-        // baseURL: 'https://split-the-bill-2.herokuapp.com/api/auth',
-        baseURL: 'https://split-the-bill-2.herokuapp.com/api',
+        baseURL: 'https://split-the-bill-2.herokuapp.com/api/auth',
+        // baseURL: 'https://split-the-bill-2.herokuapp.com/api',
         // baseURL: 'https://split-the-bill-2.herokuapp.com/api/friends',
         headers: {
             Authorization: token
