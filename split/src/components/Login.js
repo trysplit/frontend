@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const initialState = {
     username: '',
-    passwor: '',
+    password: '',
     email: ''
 }
 
@@ -22,7 +22,7 @@ const Login = (props) => {
         e.preventDefault()
         console.log(login)
         axiosWithAuth()
-            .post('/auth/login', login)
+            .post('/login', login)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.payload)
@@ -30,11 +30,12 @@ const Login = (props) => {
             })
         setLogin(initialState)
     }
+
     return (
         <>
             <div className="LoginForm">
                 <h1>Returning User? Sign in here!</h1>
-                  <form onSubmit={handleSubmit}>
+                  <form>
                     <input
                         type='text'
                         name='username'
@@ -50,7 +51,9 @@ const Login = (props) => {
                         onChange={handleChanges}
                         value={login.password}
                     />
-                     <button type='submit'>Login as a User</button>
+                     <Link to='/Bill' className='button-cont'>
+                         <button type='submit' onClick={handleSubmit}>Log In</button>
+                    </Link>
 
                      <Link to='/register' className='btn'>Register as a User</Link>
                     </form>
