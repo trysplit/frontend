@@ -58,7 +58,7 @@ class Split extends React.Component {
 
     render() {
         return (
-            <div classname='split'>
+            <div className='split'>
                 <form onSubmit={this.splitBill}>
                     <h2>Add a Bill</h2>
                     <input
