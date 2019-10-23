@@ -1,86 +1,104 @@
-
-import React, { useState } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+} from 'reactstrap';
 import styled from 'styled-components'
+import axiosWithAuth from '../utils/axiosWithAuth';
+import { Link } from 'react-router-dom'
 
-const initialState = {
-    username: '',
-    passwor: '',
-    email: ''
-}
+const Login = props => {
+    // console.log(props)
 
-const Login = (props) => {
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: ""
+    });
 
-    const HomeCont = styled.div`
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       /* height: 100vh; */
-       img {
-           width:25rem;
-       }
-       p {
-        font-style: italic;
-        fomt-size: 40px;
-        margin: 0;
-       }
-       button {
-           background: #6E588A;
-           border-style: none;
-           width: 8rem;
-           margin: 1rem;
-       }
-    `;
-
-    const [login, setLogin] = useState(initialState)
-
-    const handleChanges = e => {
-        setLogin({ ...login, [e.target.name]: e.target.value })
+    const handleChange = e => {
+        e.preventDefault();
+        // console.log(e)
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        })
+        // console.log(credentials)
     }
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        console.log(login)
+    const userLogin = e => {
+        e.preventDefault();
+        console.log("Here")
+        // e.persist();
         axiosWithAuth()
-            .post('/auth/login', login)
+            .post('/login', credentials)
             .then(res => {
                 console.log(res)
-                localStorage.setItem('token', res.data.payload)
-                props.history.push('/split')
+                localStorage.setItem('token', res.data.token);
+                props.history.push('/bill')
             })
-        setLogin(initialState)
+            .catch(err => console.log(err, 'error on login'))
     }
+    const CallConsole = ()=>{console.log("Hello");}
     return (
-        <>
-          <div className="HomeCont">
-                <h1>Returning User? Sign in here!</h1>
-                  <form onSubmit={handleSubmit}>
-                    <input
-                        type='text'
-                        name='username'
-                        placeholder='username'
-                        onChange = {handleChanges}
-                        value = {login.username}
-                        class=""
-                    />
 
-                    <input
-                        type='text'
-                        name='password'
-                        placeholder='password'
-                        onChange={handleChanges}
-                        value={login.password}
-                    />
-                     <button type='submit'>Login as a User</button>
+        <LoginStyle>
+            <Container className="login">
+                <h2>Returning User? Sign in here</h2>
+                <Form onSubmit={userLogin}><Button type="submit">S</Button></Form>
+                <Form className="form" onSubmit={userLogin} autoComplete='on'>
+                    <Col>
+                        <FormGroup>
+                            <Label>Username</Label>
+                            <Input
+                                type="text"
+                                name="username"
+                                value={credentials.username}
+                                placeholder="username"
+                                onChange={handleChange}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col>
+                        <FormGroup>
+                            <Label for="examplePassword">Password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                value={credentials.password}
+                                placeholder='password'
+                                onChange={handleChange}
+                                autoComplete='off'
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Link to="/bill"> <div className='button-cont'><Button type='submit' >Log In</Button></div></Link>
+                </Form>
+            </Container>
+        </LoginStyle>
 
-                     <Link to='/register' className='btn'>Register as a User</Link>
-                    </form>
-            </div>
+    )
+}
+
+const LoginStyle = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+img {
+    width: 25rem;
+}
+.login {
+    width: 30rem;
+    .button-cont {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 8rem;
+            background: #6E588A;
             
-        </>
-    );
-};
+        }
+    }
+}
+`;
 
 export default Login;
