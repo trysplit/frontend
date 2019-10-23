@@ -1,10 +1,12 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Split from '../components/Calculator/Split';
 import styled from 'styled-components'
+
 // import Input from 
 
 const useStyles = makeStyles(theme => ({
@@ -55,7 +57,7 @@ export default function Bill() {
     const handleClose = () => {
         setOpen(false);
     };
-   
+
 
     return (
         <HomeCont>
@@ -78,12 +80,9 @@ export default function Bill() {
 
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h2 id="transition-modal-title">Transition modal</h2>
-                        <p id="transition-modal-description">react-transition-group animates me.</p>
 
-
-
-                 <Split />
+                        <h2 id="transition-modal-title">Split the Bill</h2>
+                        <Split />
 
 
                     </div>
