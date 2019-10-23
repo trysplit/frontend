@@ -17,18 +17,19 @@ class Split extends React.Component {
         }
     }
 
-    splitBill(event, total, numberOfFriends) {
+    splitBill(event) {
         event.preventDefault()
         console.log('Is this working?')
-        this.setState({
-            split: total / numberOfFriends
-        })
-        event.preventDefault();
+        // this.setState({
+        //     split: total / numberOfFriends
+        // })
+        const data = this.state.bill
         axios
-            .get('https://split-the-bill-2.herokuapp.com/api/bills')
+            .post('https://split-the-bill-2.herokuapp.com/api/bills', data)
             .then(res => {
-                console.log('hello')
-                localStorage.setItem('payload', res.data.payload);
+                console.log('Hello Post is working')
+                this.setState({modal: false})
+                // localStorage.setItem('token', res.data.token);
                 // props.history.push('/bills')
             })
             .catch(err => console.log(err, 'error on Bill'))
@@ -44,19 +45,6 @@ class Split extends React.Component {
                 [e.target.name]: e.target.value
             }
         });
-    };
-
-    handleSubmit = () => {
-        this.props.addBill(this.state.bill)
-        this.setState({
-            bill: {
-                returant: '',
-                numberOfFriends: '',
-                total: '',
-                split: ''
-            }
-        })
-        this.props.history.push('/')
     };
 
 
@@ -84,13 +72,22 @@ class Split extends React.Component {
 
                     <input
                         step='any'
-                        placeholder='Total Cost'
+                        placeholder='Bill Total'
                         name='total'
                         type='number'
                         value={this.state.bill.total}
                         onChange={this.handleChange}
                     />
 
+
+                    <input
+                        step='any'
+                        placeholder='Balanced owed by Each'
+                        name='split'
+                        type='number'
+                        value={this.state.bill.total / this.state.bill.numberOfFriends}
+                        onChange={this.handleChange}
+                    />
                     <button type='submit'> Split the Bill!</button>
 
 
