@@ -11,7 +11,8 @@ class Split extends React.Component {
                 total: '',
                 split: '',
 
-            }
+            },
+            modal: false
         }
     }
 
@@ -30,8 +31,9 @@ class Split extends React.Component {
     //     }
     // };
 
-    splitTheBill(total,
-        numberOfFriends) {
+    splitBill(event, total, numberOfFriends) {
+        event.preventDefault()
+        console.log('Is this working?')
         this.setState({
             split: total / numberOfFriends
         })
@@ -70,8 +72,7 @@ class Split extends React.Component {
         return (
 
             <div className='split' >
-                <form onSubmit={() =>
-                    this.splitTheBill(this.state.total, this.state.numberOfFriends)}>
+                <form onSubmit={(event) => this.splitBill(event, this.state.total, this.state.numberOfFriends)}>
                     <h2>Add a Bill</h2>
                     <input
                         placeholder="Enter Resturant"
