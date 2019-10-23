@@ -22,9 +22,9 @@ const Naviagtion = (props) => {
             <NavItem>
               <NavLink href="/Bill">Bill</NavLink>
             </NavItem>
-            {/* <NavItem>
-              <NavLink href="/Logout">Logout</NavLink>
-            </NavItem> */}
+            <NavItem>
+              <NavLink href="/MyProfile">My Profile</NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
