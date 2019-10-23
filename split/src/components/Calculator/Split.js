@@ -28,7 +28,7 @@ class Split extends React.Component {
             .post('https://split-the-bill-2.herokuapp.com/api/bills', data)
             .then(res => {
                 console.log('Hello Post is working')
-                this.setState({modal: false})
+                this.setState({ modal: false })
                 // localStorage.setItem('token', res.data.token);
                 // props.history.push('/bills')
             })
@@ -47,18 +47,18 @@ class Split extends React.Component {
         });
     };
 
-    handleSubmit = () => {
-        this.props.addBill(this.state.bill)
-        this.setState({
-            bill: {
-                returant: '',
-                numberOfFriends: '',
-                total: '',
-                split: ''
-            }
-        })
-        this.props.history.push('/')
-    };
+    // handleSubmit = () => {
+    //     this.props.addBill(this.state.bill)
+    //     this.setState({
+    //         bill: {
+    //             returant: '',
+    //             numberOfFriends: '',
+    //             total: '',
+    //             split: ''
+    //         }
+    //     })
+    //     this.props.history.push('/')
+    // };
 
 
     render() {
