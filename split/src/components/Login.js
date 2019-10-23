@@ -17,6 +17,7 @@ const Login = props => {
     });
 
     const handleChange = e => {
+        e.preventDefault();
         // console.log(e)
         setCredentials({
             ...credentials,
@@ -27,18 +28,17 @@ const Login = props => {
 
     const userLogin = e => {
         e.preventDefault();
-        console.log('hello')
         // e.persist();
         axiosWithAuth()
             .post('/login', credentials)
             .then(res => {
-                // console.log(res)
+                console.log(res)
                 localStorage.setItem('token', res.data.token);
                 props.history.push('/bill')
             })
             .catch(err => console.log(err, 'error on login'))
     }
-
+    const CallConsole = ()=>{console.log("Hello");}
     return (
 
         <LoginStyle>
