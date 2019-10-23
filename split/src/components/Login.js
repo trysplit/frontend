@@ -6,10 +6,10 @@ import {
 } from 'reactstrap';
 import styled from 'styled-components'
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { Link } from 'react-router-dom'
 
 const Login = props => {
     // console.log(props)
+
 
     const [credentials, setCredentials] = useState({
         username: "",
@@ -28,7 +28,6 @@ const Login = props => {
 
     const userLogin = e => {
         e.preventDefault();
-        console.log("Here")
         // e.persist();
         axiosWithAuth()
             .post('/login', credentials)
@@ -45,7 +44,6 @@ const Login = props => {
         <LoginStyle>
             <Container className="login">
                 <h2>Returning User? Sign in here</h2>
-                <Form onSubmit={userLogin}><Button type="submit">S</Button></Form>
                 <Form className="form" onSubmit={userLogin} autoComplete='on'>
                     <Col>
                         <FormGroup>
@@ -72,7 +70,7 @@ const Login = props => {
                             />
                         </FormGroup>
                     </Col>
-                    <Link to="/bill"> <div className='button-cont'><Button type='submit' >Log In</Button></div></Link>
+                    <div className='button-cont'><Button type='submit' >Log In</Button></div>
                 </Form>
             </Container>
         </LoginStyle>

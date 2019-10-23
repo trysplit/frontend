@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 
 class Split extends React.Component {
@@ -11,31 +12,30 @@ class Split extends React.Component {
                 total: '',
                 split: '',
 
-            }
+            },
+            modal: false
         }
     }
 
-
-    // splitBill = e => {
-    //     e.preventDefault();
-    //     if (this.state.bill.total > 0 && this.state.bill.numberOfFriends > 0) {
-    //         this.setState({
-    //             bill: {
-    //                 ...this.state.bill,
-    //                 split: parseFloat(Math.round((this.state.bill.total / this.state.bill.numberOfFriends) * 100) / 100).toFixed(2)
-    //             }
-    //         })
-    //     } else {
-    //         alert('INVALID BILL ENTRY!')
-    //     }
-    // };
-
-    splitTheBill(total,
-        numberOfFriends) {
-        this.setState({
-            split: total / numberOfFriends
-        })
+    splitBill(event) {
+        event.preventDefault()
+        console.log('Is this working?')
+        // this.setState({
+        //     split: total / numberOfFriends
+        // })
+        const data = this.state.bill
+        axios
+            .post('https://split-the-bill-2.herokuapp.com/api/bills', data)
+            .then(res => {
+                console.log('Hello Post is working')
+                this.setState({modal: false})
+                // localStorage.setItem('token', res.data.token);
+                // props.history.push('/bills')
+            })
+            .catch(err => console.log(err, 'error on Bill'))
     }
+
+
 
 
     handleChange = e => {
@@ -60,19 +60,12 @@ class Split extends React.Component {
         this.props.history.push('/')
     };
 
-    // handleModal = e => {
-    //     e.preventDefault()
-    //     this.handleSubmit();
-    //     this.props.onHide();
-    // }
 
     render() {
         return (
 
             <div className='split' >
-                <form onSubmit={() =>
-                    this.splitTheBill(this.state.total, this.state.numberOfFriends)}>
-                    <h2>Add a Bill</h2>
+                <form onSubmit={(event) => this.splitBill(event, this.state.total, this.state.numberOfFriends)}>
                     <input
                         placeholder="Enter Resturant"
                         type='text'
@@ -92,13 +85,22 @@ class Split extends React.Component {
 
                     <input
                         step='any'
-                        placeholder='Total Cost'
+                        placeholder='Bill Total'
                         name='total'
                         type='number'
                         value={this.state.bill.total}
                         onChange={this.handleChange}
                     />
 
+
+                    <input
+                        step='any'
+                        placeholder='Balanced owed by Each'
+                        name='split'
+                        type='number'
+                        value={this.state.bill.total / this.state.bill.numberOfFriends}
+                        onChange={this.handleChange}
+                    />
                     <button type='submit'> Split the Bill!</button>
 
 
