@@ -47,19 +47,6 @@ class Split extends React.Component {
         });
     };
 
-    handleSubmit = () => {
-        this.props.addBill(this.state.bill)
-        this.setState({
-            bill: {
-                returant: '',
-                numberOfFriends: '',
-                total: '',
-                split: ''
-            }
-        })
-        this.props.history.push('/')
-    };
-
 
     render() {
         return (
