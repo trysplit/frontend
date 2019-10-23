@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react'
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
     Button,
 } from 'reactstrap';
+
 import styled from 'styled-components'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -15,6 +17,7 @@ const Register = props => {
         password: '',
 
     })
+
 
     const handleChange = e => {
         // console.log(e, 'onchange')
@@ -72,6 +75,7 @@ const Register = props => {
                 </Form>
             </Container>
         </RegForm>
+
     )
 }
 
