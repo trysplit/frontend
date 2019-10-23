@@ -36,7 +36,7 @@ export default function Bill() {
        }
        p {
         font-style: italic;
-        fomt-size: 40px;
+        font-size: 40px;
         margin: 0;
        }
        button {
@@ -61,35 +61,33 @@ export default function Bill() {
 
     return (
         <HomeCont>
-             <div>
-            <button type="button" onClick={handleOpen}>
-                Add a Bill
+            <div>
+                <button type="button" onClick={handleOpen}>
+                    Add a Bill
       </button>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
+                <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    className={classes.modal}
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                        timeout: 500,
+                    }}
+                >
 
-                <Fade in={open}>
-                    <div className={classes.paper}>
+                    <Fade in={open}>
+                        <div className={classes.paper}>
 
-                        <h2 id="transition-modal-title">Split the Bill</h2>
-                        <Split />
-
-
-                    </div>
-                </Fade>
-            </Modal>
-        </div>
+                            <h2 id="transition-modal-title">Split the Bill</h2>
+                            <Split />
+                        </div>
+                    </Fade>
+                </Modal>
+            </div>
         </HomeCont>
-       
+
     );
 }
