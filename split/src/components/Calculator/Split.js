@@ -1,5 +1,5 @@
 import React from 'react';
-import axiosWithAuth from '../../utils/axiosWithAuth';
+import axios from 'axios';
 
 
 class Split extends React.Component {
@@ -24,14 +24,14 @@ class Split extends React.Component {
             split: total / numberOfFriends
         })
         event.preventDefault();
-        axiosWithAuth()
-            .post('/bills')
+        axios
+            .get('https://split-the-bill-2.herokuapp.com/api/bills')
             .then(res => {
-                // console.log(res)
-                localStorage.setItem('token', res.data.token);
+                console.log('hello')
+                localStorage.setItem('payload', res.data.payload);
                 // props.history.push('/bills')
             })
-            .catch(err => console.log(err, 'error on login'))
+            .catch(err => console.log(err, 'error on Bill'))
     }
 
 
