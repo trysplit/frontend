@@ -1,6 +1,6 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const path = `http://localhost:5000/Bill`
+const path = `https://split-the-bill-2.herokuapp.com/api`
 
 export const ADD_BILL = 'ADD_BILL';
 export const SUCCESS_BILL = 'SUCCESS_BILL';
@@ -38,7 +38,7 @@ export function deleteBill(id) {
     return dispatch => {
         dispatch({ type: DELETE_BILL });
         axiosWithAuth()
-            .delete(`http://localhost:3001/Bill/${id}`)
+            .delete(`https://split-the-bill-2.herokuapp.com/api/${id}`)
             .then(res => {
                 console.log(res.data)
                 dispatch({ type: SUCCESS_DELETE_BILL, payload: id });

@@ -1,66 +1,106 @@
-
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+} from 'reactstrap';
+import styled from 'styled-components'
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { Link } from 'react-router-dom';
+
+const Login = props => {
+    // console.log(props)
 
 
-const initialState = {
-    username: '',
-    password: '',
-    email: ''
-}
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: ""
+    });
 
-const Login = (props) => {
-
-    const [login, setLogin] = useState(initialState)
-
-    const handleChanges = e => {
-        setLogin({ ...login, [e.target.name]: e.target.value })
+    const handleChange = e => {
+        // console.log(e)
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        })
+        // console.log(credentials)
     }
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        console.log(login)
+    const userLogin = e => {
+        e.preventDefault();
+        // console.log(credentials)
+        // e.persist();
         axiosWithAuth()
-            .post('/login', login)
+            .post('/login', credentials)
             .then(res => {
-                console.log(res)
-                localStorage.setItem('token', res.data.payload)
-                props.history.push('/split')
+                // console.log(res)
+                localStorage.setItem('token', res.data.token);
+                props.history.push('/bill')
             })
-        setLogin(initialState)
+            .catch(err => console.log(err, 'error on login'))
     }
 
     return (
-        <>
-            <div className="LoginForm">
-                <h1>Returning User? Sign in here!</h1>
-                  <form>
-                    <input
-                        type='text'
-                        name='username'
-                        placeholder='username'
-                        onChange = {handleChanges}
-                        value = {login.username}
-                    />
 
-                    <input
-                        type='text'
-                        name='password'
-                        placeholder='password'
-                        onChange={handleChanges}
-                        value={login.password}
-                    />
-                     <Link to='/Bill' className='button-cont'>
-                         <button type='submit' onClick={handleSubmit}>Log In</button>
-                    </Link>
+        <LoginStyle>
+            <Container className="login">
+                <h2>Returning User? Sign in here</h2>
 
-                     <Link to='/register' className='btn'>Register as a User</Link>
-                    </form>
-            </div>
+                <Form className="form" onSubmit={userLogin} autoComplete='on'>
+                    <Col>
+                        <FormGroup>
+
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Username</Label>
+                            <Input
+                                type="text"
+                                name="username"
+                                value={credentials.username}
+                                placeholder="username"
+                                onChange={handleChange}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col>
+                        <FormGroup>
+                            <Label for="examplePassword">Password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                value={credentials.password}
+                                placeholder='password'
+                                onChange={handleChange}
+                                autoComplete='off'
+                            />
+                        </FormGroup>
+                    </Col>
+                    <div className='button-cont'><Button type='submit' >Log In</Button></div>
+                </Form>
+            </Container>
+        </LoginStyle>
+
+    )
+}
+
+const LoginStyle = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+img {
+    width: 25rem;
+}
+.login {
+    width: 30rem;
+    .button-cont {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 8rem;
+            background: #6E588A;
             
-        </>
-    );
-};
+        }
+    }
+}
+`;
 
 export default Login;
