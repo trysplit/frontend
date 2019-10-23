@@ -1,4 +1,5 @@
 import React from 'react';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 
 class Split extends React.Component {
@@ -16,28 +17,24 @@ class Split extends React.Component {
         }
     }
 
-
-    // splitBill = e => {
-    //     e.preventDefault();
-    //     if (this.state.bill.total > 0 && this.state.bill.numberOfFriends > 0) {
-    //         this.setState({
-    //             bill: {
-    //                 ...this.state.bill,
-    //                 split: parseFloat(Math.round((this.state.bill.total / this.state.bill.numberOfFriends) * 100) / 100).toFixed(2)
-    //             }
-    //         })
-    //     } else {
-    //         alert('INVALID BILL ENTRY!')
-    //     }
-    // };
-
     splitBill(event, total, numberOfFriends) {
         event.preventDefault()
         console.log('Is this working?')
         this.setState({
             split: total / numberOfFriends
         })
+        event.preventDefault();
+        axiosWithAuth()
+            .post('/bills')
+            .then(res => {
+                // console.log(res)
+                localStorage.setItem('token', res.data.token);
+                // props.history.push('/bills')
+            })
+            .catch(err => console.log(err, 'error on login'))
     }
+
+
 
 
     handleChange = e => {
@@ -62,18 +59,12 @@ class Split extends React.Component {
         this.props.history.push('/')
     };
 
-    // handleModal = e => {
-    //     e.preventDefault()
-    //     this.handleSubmit();
-    //     this.props.onHide();
-    // }
 
     render() {
         return (
 
             <div className='split' >
                 <form onSubmit={(event) => this.splitBill(event, this.state.total, this.state.numberOfFriends)}>
-                    <h2>Add a Bill</h2>
                     <input
                         placeholder="Enter Resturant"
                         type='text'
