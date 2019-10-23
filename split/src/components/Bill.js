@@ -5,6 +5,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Split from '../components/Calculator/Split';
+import styled from 'styled-components'
+
 // import Input from 
 
 const useStyles = makeStyles(theme => ({
@@ -22,6 +24,29 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Bill() {
+
+    const HomeCont = styled.div`
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* height: 100vh; */
+       img {
+           width:25rem;
+       }
+       p {
+        font-style: italic;
+        fomt-size: 40px;
+        margin: 0;
+       }
+       button {
+           background: #6E588A;
+           border-style: none;
+           width: 8rem;
+           margin: 1rem;
+       }
+    `;
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -35,7 +60,8 @@ export default function Bill() {
 
 
     return (
-        <div>
+        <HomeCont>
+             <div>
             <button type="button" onClick={handleOpen}>
                 Add a Bill
       </button>
@@ -54,6 +80,7 @@ export default function Bill() {
 
                 <Fade in={open}>
                     <div className={classes.paper}>
+
                         <h2 id="transition-modal-title">Split the Bill</h2>
                         <Split />
 
@@ -62,5 +89,7 @@ export default function Bill() {
                 </Fade>
             </Modal>
         </div>
+        </HomeCont>
+       
     );
 }

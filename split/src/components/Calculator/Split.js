@@ -15,6 +15,7 @@ class Split extends React.Component {
         }
     }
 
+
     // splitBill = e => {
     //     e.preventDefault();
     //     if (this.state.bill.total > 0 && this.state.bill.numberOfFriends > 0) {
@@ -35,6 +36,7 @@ class Split extends React.Component {
             split: total / numberOfFriends
         })
     }
+
 
     handleChange = e => {
         this.setState({
@@ -66,6 +68,7 @@ class Split extends React.Component {
 
     render() {
         return (
+
             <div className='split' >
                 <form onSubmit={() =>
                     this.splitTheBill(this.state.total, this.state.numberOfFriends)}>

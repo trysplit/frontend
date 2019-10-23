@@ -1,85 +1,105 @@
-
-import React, { useState } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+} from 'reactstrap';
 import styled from 'styled-components'
+import axiosWithAuth from '../utils/axiosWithAuth';
 
-const initialState = {
-    username: '',
-    passwor: '',
-    email: ''
+const Login = props => {
+    // console.log(props)
+
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: ""
+    });
+
+    const handleChange = e => {
+        // console.log(e)
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        })
+        // console.log(credentials)
+    }
+
+    const userLogin = e => {
+        e.preventDefault();
+        // console.log(credentials)
+        // e.persist();
+        axiosWithAuth()
+            .post('/login', credentials)
+            .then(res => {
+                // console.log(res)
+                localStorage.setItem('token', res.data.token);
+                props.history.push('/bill')
+            })
+            .catch(err => console.log(err, 'error on login'))
+    }
+
+    return (
+
+        <LoginStyle>
+            <Container className="login">
+                <h2>Returning User? Sign in here</h2>
+
+                <Form className="form" onSubmit={userLogin} autoComplete='on'>
+                    <Col>
+                        <FormGroup>
+
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Username</Label>
+                            <Input
+                                type="text"
+                                name="username"
+                                value={credentials.username}
+                                placeholder="username"
+                                onChange={handleChange}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col>
+                        <FormGroup>
+                            <Label for="examplePassword">Password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                value={credentials.password}
+                                placeholder='password'
+                                onChange={handleChange}
+                                autoComplete='off'
+                            />
+                        </FormGroup>
+                    </Col>
+                    <div className='button-cont'><Button type='submit' >Log In</Button></div>
+                </Form>
+            </Container>
+        </LoginStyle>
+
+    )
 }
 
-const Login = (props) => {
-
-    const HomeCont = styled.div`
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       /* height: 100vh; */
-       img {
-           width:25rem;
-       }
-       p {
-        font-style: italic;
-        font-size: 40px;
-        margin: 0;
-       }
-       button {
-           background: #6E588A;
-           border-style: none;
-           width: 8rem;
-           margin: 1rem;
-       }
-    `;
-
-    const [login, setLogin] = useState(initialState)
-
-    const handlChanges = e => {
-        setLogin({ ...login, [e.target.name]: e.target.value })
+const LoginStyle = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+img {
+    width: 25rem;
+}
+.login {
+    width: 30rem;
+    .button-cont {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 8rem;
+            background: #6E588A;
+            
+        }
     }
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        console.log(login)
-        axiosWithAuth()
-            .post('/auth/login', login)
-            .then(res => {
-                console.log(res)
-                localStorage.setItem('token', res.data.payload)
-                props.history.push('/split')
-            })
-        setLogin(initialState)
-    }
-    return (
-        <>
-            <HomeCont>
-                <h1>Returning User? Sign in here!</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type='text'
-                        name='username'
-                        placeholder='username'
-                        onChange={handlChanges}
-                        value={login.username}
-                    />
-
-                    <input
-                        type='text'
-                        name='password'
-                        placeholder='password'
-                        onChange={handlChanges}
-                        value={login.password}
-                    />
-                    <button type='submit'>Login as a User</button>
-
-                    <Link to='/register' className='btn'>Register as a User</Link>
-                </form>
-            </HomeCont>
-
-        </>
-    );
-};
+}
+`;
 
 export default Login;

@@ -7,6 +7,8 @@ import Register from './components/Register';
 import PrivateRoute from './Routes/PrivateRoute';
 import Home from './components/Home';
 import Navigation from './components/Navigation';
+// import Logout from './components/Logout';
+import './App.css';
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route path='/Login' component={Login} />
         <Route path='/Register' component={Register} />
-        <Route path="/Bill" component={Bill} />
+        <PrivateRoute exact path="/bill" component={Bill} />
+        {/* <Route path="/Logout" component={Logout} /> */}
         </div>
     </Router >
     )

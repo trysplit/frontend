@@ -1,91 +1,103 @@
 
+import React, { useState } from 'react'
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+} from 'reactstrap';
 
-import React, { useState } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
 import styled from 'styled-components'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+
+const Register = props => {
+
+    const [newUser, setNewUser] = useState({
+        username: '',
+        password: '',
+
+    })
 
 
-const initialState = {
-    firstname: '',
-    lastname: '',
-    username: '',
-    password: '',
-    email: ''
-}
-
-const Register = (props) => {
-
-    const HomeCont = styled.div`
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       /* height: 100vh; */
-       img {
-           width:25rem;
-       }
-       p {
-        font-style: italic;
-        font-size: 40px;
-        margin: 0;
-       }
-       button {
-           background: #6E588A;
-           border-style: none;
-           width: 8rem;
-           margin: 1rem;
-       }
-    `;
-
-    const [register, setRegister] = useState(initialState)
-
-
-    const handleChanges = e => {
-        setRegister({ ...register, [e.target.name]: e.target.value })
+    const handleChange = e => {
+        // console.log(e, 'onchange')
+        setNewUser({
+            ...newUser,
+            [e.target.name]: e.target.value
+        })
+        console.log(newUser)
     }
 
-    const handleSubmit = e => {
+    const regUser = e => {
         e.preventDefault()
-        console.log(register)
-        axiosWithAuth()
-            .post('/auth/register', register)
+        console.log(newUser)
+        axios
+            .post('https://split-the-bill-2.herokuapp.com/api/auth/register', newUser)
             .then(res => {
-                console.log(res)
-                localStorage.setItem('token', res.data.payload)
-                props.history.push('./register');
+                // console.log(res)
+                props.history.push('/login')
             })
-        setRegister(initialState)
+            .catch(err => console.log(err, 'error on register'))
     }
-
 
     return (
-        <>
-            <HomeCont>
-                <h1>New user registration!</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        placeholder="firstname"
-                        type="text"
-                        name="firstname"
-                        value={register.firstname}
-                        onChange={handleChanges}
-                    />
+        <RegForm>
+            <Container className="reg">
+                <h2>New user? Register here</h2>
+                <Form className="form" onSubmit={regUser}>
 
+                    <Col>
+                        <FormGroup>
+                            <Label>username</Label>
+                            <Input
+                                type="text"
+                                name="username"
+                                placeholder="username"
+                                onChange={handleChange}
+                                value={newUser.username}
+                            />
+                        </FormGroup>
+                    </Col>
+                    <Col>
+                        <FormGroup>
+                            <Label>password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                placeholder="password"
+                                onChange={handleChange}
+                                value={newUser.password}
+                                autoComplete='off'
+                            />
+                        </FormGroup>
+                    </Col>
+                   <Link to="/Login"> <div className='button-cont'><Button type='submit' >Submit</Button></div></Link>
+                </Form>
+            </Container>
+        </RegForm>
 
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder="email"
-                        onChange={handleChanges}
-                        value={register.email}
-                    />
-                </form>
-                <button>Register</button>
-            </HomeCont>
-
-        </>
     )
 }
 
+const RegForm = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+   img {
+       width: 25rem;
+   }
+   .reg {
+       margin: 0;
+       width: 30rem;
+       .button-cont {
+            display: flex;
+            justify-content: center;
+            button {
+                width: 8rem;
+                background: #6E588A;
+            }
+       }
+   }
+`;
 
 export default Register;
