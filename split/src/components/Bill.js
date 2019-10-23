@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -54,7 +55,6 @@ export default function Bill() {
                 <Fade in={open}>
                     <div className={classes.paper}>
                         <h2 id="transition-modal-title">Split the Bill</h2>
-                        <p id="transition-modal-description">react-transition-group animates me.</p>
                         <Split />
 
 
