@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import styled from 'styled-components'
 import axiosWithAuth from '../utils/axiosWithAuth';
+import { Link } from 'react-router-dom'
 
 const Login = props => {
     // console.log(props)
@@ -73,7 +74,7 @@ const Login = props => {
                             />
                         </FormGroup>
                     </Col>
-                    <div className='button-cont'><Button type='submit' >Log In</Button></div>
+                    <Link to="/bill"> <div className='button-cont'><Button type='submit' >Log In</Button></div></Link>
                 </Form>
             </Container>
         </LoginStyle>
