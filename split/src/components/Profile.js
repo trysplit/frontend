@@ -1,11 +1,9 @@
-import React, { useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { withFormik } from 'formik';
 import IOweYou from './IOweYou.js'
 import YouOweMe from './YouOweMe.js'
 import UserInfo from './UserInfo.js'
-import Yup from 'yup';
-import axios from 'axios';
 
 export default () =>{
     const Container = styled.div`

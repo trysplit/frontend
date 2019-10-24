@@ -80,6 +80,7 @@ export default () => {
         align-items: center;
         margin: 0;
     `;
+    const Option = styled.option`font-size: 1.6rem;`;
 
     const [bills, setBills] = useState([{
         name: "Andrew McKinley",
@@ -145,10 +146,10 @@ export default () => {
                 <TheirName id="their-name">{displayedBill.name}</TheirName>
                 <Amount id="amount">{displayedBill.cost}</Amount>
                 <Select name="bill-select" id="bill-select" onChange={updateBill}>
-                    <option value="">Select Bill</option>
+                    <Option value="">Select Bill</Option>
                     {
                         bills.map( bill =>{
-                            return <option value={bills.indexOf(bill)} key={`iOweYou | ${bills.indexOf(bill)}`}>{bill.name}</option>
+                            return <Option value={bills.indexOf(bill)} key={`iOweYou | ${bills.indexOf(bill)}`}>{bill.name}</Option>
                             })
                     }
                 </Select>

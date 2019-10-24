@@ -55,6 +55,10 @@ export default () => {
         flex-direction: column;
         justify-content: space-between;
     `;
+    const Option = styled.option`
+        font-size: 1.6rem;
+        text-align: center;
+    `;
 
     const [bills, setBills] = useState([
         {
@@ -138,16 +142,16 @@ export default () => {
                 <Name type="text" name="their-name" id="their-name" placeholder={displayedBill.name}/>
                 <Amount type="text" name="amount" id="amount" placeholder={displayedBill.cost}/>
                 <Select name="bill-select" id="bill-select" onChange={updateBill}>
-                    <option value="">Select Bill</option>
+                    <Option value="">Select Bill</Option>
                     {bills.map( bill =>
-                    {return <option value={bills.indexOf(bill)} key={`youOweMe | ${bills.indexOf(bill)}`}>{bill.name}</option>}
+                    {return <Option value={bills.indexOf(bill)} key={`youOweMe | ${bills.indexOf(bill)}`}>{bill.name}</Option>}
                     )}
                 </Select>
             </TopSection>
             <BottomSection>
                 <Restaurant type="text" name="restaurant" id="restaurant" placeholder={displayedBill.restaurant}/>
                 <Bottom>
-                    <Description name="description" id="description" placeholder={displayedBill.description} cols="30" rows="7" />
+                    <Description name="description" id="description" placeholder={displayedBill.description} cols="30" rows="10" />
                     <Right>
                         <DayOfBill type="date" name="dayOfBill" id="dayOfBill" defaultValue={displayedBill.date}/>
                         <Edit id="edit-button">Edit Bill</Edit>
