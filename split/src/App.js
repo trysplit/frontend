@@ -17,11 +17,11 @@ function App() {
       
       <div>
         <Navigation />
+        {/* <Route exact path="/" component={Home}/> */}
         <Route path='/Login' component={Login} />
         <Route path='/Register' component={Register} />
         <PrivateRoute exact path="/bill" component={Bill} />
         <Route path="/MyProfile" component={Profile} />
-        {/* <Route path="/Logout" component={Logout} /> */}
         </div>
     </Router >
     )
