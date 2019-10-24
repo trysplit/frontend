@@ -10,7 +10,7 @@ export default () => {
     const Spacer = styled.div`
         margin-top: 1vh;
         margin-bottom: 1vh;
-        border-bottom: 5px solid #BEBEBE;
+        border-bottom: 5px solid sienna;
     `;
     const Label = styled.label`
         font-size: 2rem;
@@ -21,11 +21,12 @@ export default () => {
         margin-top: 5%;
         width: 50%;
         border: 1px solid #707070;
-        border-radius: 20px;
+        border-radius: 10px;
         padding: 5% 0;
         align-self: flex-end;
-        background-color: white;
+        background-color: darkolivegreen;
         font-size: 1.3rem;
+        color: white;
     `;
 
     const [profile, setProfile] = useState({
