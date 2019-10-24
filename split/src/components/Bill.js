@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
+        border: '2px solid orange',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
@@ -29,6 +29,8 @@ export default function Bill() {
        flex-direction: column;
        justify-content: center;
        align-items: center;
+       height: 100vh;
+       background: antiquewhite;
        img {
            width:25rem;
        }
@@ -43,6 +45,11 @@ export default function Bill() {
            border-style: none;
            width: 8rem;
            margin: 1rem;
+       }
+       .classes.modal{
+       background: antiquewhite;
+
+
        }
     `;
 
@@ -60,7 +67,7 @@ export default function Bill() {
 
     return (
         <HomeCont>
-            <div>
+            <div >
                 <button type="button" onClick={handleOpen}>
                     Add a Bill
       </button>

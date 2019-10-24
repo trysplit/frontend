@@ -48,7 +48,6 @@ class Split extends React.Component {
 
     render() {
         return (
-
             <div className='split' >
                 <form onSubmit={(event) => this.splitBill(event, this.state.total, this.state.numberOfFriends)}>
                     <input
@@ -98,12 +97,11 @@ class Split extends React.Component {
 
 
 
-const split = styled.div`
-border: 1px solid red;
-button{
-    color: olive
-}
-`;
+const SplitStyle = styled.div`
+background: antiquewhite;
+
+`
+
 
 
 export default Split;
