@@ -1,14 +1,12 @@
-
 import React, { useState } from 'react'
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
     Button,
 } from 'reactstrap';
-
 import styled from 'styled-components'
+// import logo from '../images/logo.png'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 const Register = props => {
 
@@ -17,7 +15,6 @@ const Register = props => {
         password: '',
 
     })
-
 
     const handleChange = e => {
         // console.log(e, 'onchange')
@@ -30,7 +27,7 @@ const Register = props => {
 
     const regUser = e => {
         e.preventDefault()
-        console.log(newUser)
+        // console.log("hello")
         axios
             .post('https://split-the-bill-2.herokuapp.com/api/auth/register', newUser)
             .then(res => {
@@ -42,6 +39,7 @@ const Register = props => {
 
     return (
         <RegForm>
+            {/* <img src={logo} alt='logo' /> */}
             <Container className="reg">
                 <h2>New user? Register here</h2>
                 <Form className="form" onSubmit={regUser}>
@@ -71,11 +69,10 @@ const Register = props => {
                             />
                         </FormGroup>
                     </Col>
-                   <Link to="/Login"> <div className='button-cont'><Button type='submit' >Submit</Button></div></Link>
+                    <div className='button-cont'><Button type='submit' >Submit</Button></div>
                 </Form>
             </Container>
         </RegForm>
-
     )
 }
 
