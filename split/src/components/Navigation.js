@@ -9,7 +9,7 @@ const Naviagtion = (props) => {
   return (
     <div>
       <Navbar color="faded" light>
-        <NavbarBrand href="/" className="mr-auto">Home</NavbarBrand>
+        <NavbarBrand href="https://theappofsplit.netlify.com/" className="mr-auto">Home</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
