@@ -39,7 +39,6 @@
 }
 *{margin:0;padding:0; box-sizing: border-box; font-family: 'Noticia Text', serif; }
 html{font-size: 62.5%; font-family: 'Noticia Text', serif; }
-body{background-color: white;}
 #youOweMe {
   width: 45%;
   height: fit-content;
@@ -87,4 +86,13 @@ body{background-color: white;}
   width: 8rem;
   background: #6E588A;
   border: 1px solid orange;
+}
+
+.nav{
+  background: oldlace;
+}
+
+body{ 
+  height: 100vh;
+  background: antiquewhite;
 }

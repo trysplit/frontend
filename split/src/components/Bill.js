@@ -61,7 +61,7 @@ export default function Bill() {
 
     return (
         <HomeCont>
-            <div>
+            <div >
                 <button type="button" onClick={handleOpen}>
                     Add a Bill
       </button>

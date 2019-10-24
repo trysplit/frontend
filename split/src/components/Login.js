@@ -38,6 +38,7 @@ const Login = props => {
             })
             .catch(err => console.log(err, 'error on login'))
     }
+    // const CallConsole = ()=>{console.log("Hello");}
     return (
 
         <LoginStyle>
@@ -81,10 +82,41 @@ const LoginStyle = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-img {
-    width: 25rem;
-}
+background: antiquewhite;
+color: #5E6164;
+height: 100vh;
+padding: 30rem 0; 
 .login {
+    form {
+        label{
+            font-size: 2rem;
+        }
+        input{
+            font-size: 2rem;
+            placehoder{
+             font-size: 2rem;
+            }
+            type{
+                font-size: 2rem;
+            }
+        }
+    }
+    h2{
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 5%;
+        font-size: 4.5rem;
+        position: relative;
+        letter-spacing: 4px;
+        overflow: hidden;
+        background: linear-gradient(90deg, darkolivegreen, goldenrod, forestgreen);
+        background-repeat: repeat;
+        background-size: 80%;
+        animation: animate 5s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    }
     width: 30rem;
     .button-cont {
         display: flex;
@@ -92,6 +124,15 @@ img {
         button {
             width: 8rem;
             background: #6E588A;
+            background-color: darkolivegreen;
+            margin: 0 10px 20px;
+            cursor: pointer;
+            width: 200px;
+            height: 40px;
+            font-size: 2rem;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Noticia Text', serif;
             
         }
     }
