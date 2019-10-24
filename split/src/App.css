@@ -21,6 +21,55 @@
   color: #09d3ac;
 }
 
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  background-color: #F0F0F0;
+  padding: 5% 7%;
+  margin-top: 5%;
+  height: 78.2%;
+}
+.profile-info input{
+  padding: 1% 2%;
+  margin-bottom: 5%;
+  font-size: 1.2rem;
+}
+*{margin:0;padding:0; box-sizing: border-box; font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; }
+html{font-size: 62.5%; font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; }
+body{background-color: white;}
+#youOweMe {
+  width: 45%;
+  height: fit-content;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 5vh;
+}
+#youOweMe input {
+  font-size: 1.6rem;
+}
+#youOweMe input[type="date"] {
+  font-size: 1.2rem;
+  font-family: inherit;
+}
+#youOweMe input[type="submit"] {
+  border: 1px solid #707070;
+  border-radius: 20px;
+  padding: 5% 0;
+  align-self: flex-end;
+  background-color: white;
+  width: 70%;
+  margin-top: 10%;
+  align-self: center;
+}
+
+#iOweYou {
+  width: 45%;
+  height: fit-content;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 5vh;
+}
 .LoginForm{
   display: flex;
   flex-direction: column;
@@ -34,3 +83,6 @@
   background: #6E588A;
   border: 1px solid orange;
 }
+  /* body{
+  background: antiquewhite
+} */

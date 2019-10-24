@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 
+import styled from 'styled-components'
+
+
 class Split extends React.Component {
     constructor() {
         super();
@@ -20,17 +23,13 @@ class Split extends React.Component {
     splitBill(event) {
         event.preventDefault()
         console.log('Is this working?')
-        // this.setState({
-        //     split: total / numberOfFriends
-        // })
+
         const data = this.state.bill
         axios
             .post('https://split-the-bill-2.herokuapp.com/api/bills', data)
             .then(res => {
                 console.log('Hello Post is working')
                 this.setState({ modal: false })
-                // localStorage.setItem('token', res.data.token);
-                // props.history.push('/bills')
             })
             .catch(err => console.log(err, 'error on Bill'))
     }
@@ -46,20 +45,6 @@ class Split extends React.Component {
             }
         });
     };
-
-    // handleSubmit = () => {
-    //     this.props.addBill(this.state.bill)
-    //     this.setState({
-    //         bill: {
-    //             returant: '',
-    //             numberOfFriends: '',
-    //             total: '',
-    //             split: ''
-    //         }
-    //     })
-    //     this.props.history.push('/')
-    // };
-
 
     render() {
         return (
@@ -101,7 +86,7 @@ class Split extends React.Component {
                         value={this.state.bill.total / this.state.bill.numberOfFriends}
                         onChange={this.handleChange}
                     />
-                    <button type='submit'> Split the Bill!</button>
+                    <button className='splitButton' type='submit'> Split the Bill!</button>
 
 
                 </form>
@@ -110,5 +95,15 @@ class Split extends React.Component {
         )
     }
 }
+
+
+
+const split = styled.div`
+border: 1px solid red;
+button{
+    color: olive
+}
+`;
+
 
 export default Split;
