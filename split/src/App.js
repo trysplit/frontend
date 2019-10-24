@@ -11,6 +11,7 @@ import Navigation from './components/Navigation';
 import Profile from './components/Profile';
 import './App.css';
 
+
 function App() {
   return (
     <Router className='App'>
