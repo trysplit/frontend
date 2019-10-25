@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { addBill } from '../actions';
+// import { connect } from 'react-redux';
+// import { addBill } from '.../actions/bill';
 
 
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
 
 class Split extends React.Component {
@@ -96,13 +96,13 @@ class Split extends React.Component {
         )
     }
 }
-const mapStateToProps = state => {
-    return {
-        isLoading: state.isLoading,
-        bill: state.bill,
-        test: state.test
-    };
-  } ;
+// const mapStateToProps = state => {
+//     return {
+//         isLoading: state.isLoading,
+//         bill: state.bill,
+//         test: state.test
+//     };
+//   } ;
 
 
-export default connect(mapStateToProps,{addBill})(Split);
+export default Split;
