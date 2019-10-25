@@ -11,7 +11,7 @@ const Naviagtion = (props) => {
    <NavNav>
       <div>
         <Navbar className="nav" color="faded" light>
-          <NavbarBrand href="https://theappofsplit.netlify.com/" className="mr-auto">Home</NavbarBrand>
+          <NavbarBrand href="https://theappofsplit.netlify.com/" className="mr-auto">SPLIT</NavbarBrand>
           <NavbarToggler onClick={toggleNavbar} className="mr-2" />
           <Collapse isOpen={!collapsed} navbar>
             <Nav navbar>
@@ -44,6 +44,16 @@ nav{
   .mr-auto{
     font-size: 2rem
     font-family: 'Noticia Text', serif 
+    width: 100%;
+        text-align: center;
+        font-size: 4.5rem;
+        overflow: hidden;
+        background: linear-gradient(90deg, darkolivegreen, goldenrod, forestgreen);
+        background-repeat: repeat;
+        background-size: 80%;
+        animation: animate 5s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0);
   } 
 }
   `
