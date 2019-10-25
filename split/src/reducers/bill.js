@@ -1,14 +1,17 @@
 import {
+    START_FETCHING,
+    FETCH_SUCCESS,
+    FETCH_FAILURE,
     ADD_BILL,
-    SUCCESS_BILL,
-    FAILED_BILL,
-    FETCH_BILL,
     SUCCESS_ADD_BILL,
+    FAILED_BILL,
     SUCCESS_DELETE_BILL,
-    DELETE_BILL,
+    DELETE_BILL
 } from '../actions/bill';
 
 const initialState = {
+    isFetching: false,
+    error: ' ',
     bill: [],
     addBill: false,
     billReveal: false,
@@ -17,12 +20,30 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case START_FETCHING:
+        return {
+          ...state,
+          isFetching: true,
+          error: ''
+        };
+        case FETCH_SUCCESS:
+        return {
+          ...state,
+          isFetching: false,
+          error: '',
+          bill: action.payload
+        };
+        case FETCH_FAILURE: 
+        return {
+            ...state, 
+            error: action.payload,
+            isFetching: false
+        }
         case ADD_BILL:
             return {
                 ...state,
-                addBill: true
             }
-        case SUCCESS_BILL:
+        case SUCCESS_ADD_BILL:
             return {
                 ...state,
                 addBill: false,
@@ -34,20 +55,6 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload.error,
                 addBill: false
-            }
-        case FETCH_BILL:
-            return {
-                ...state,
-                error: '',
-                addBill: true
-            }
-        case SUCCESS_ADD_BILL:
-            return {
-                ...state,
-                error: '',
-                addBill: false,
-                billReveal: true,
-                bill: [...state.bill, action.payload]
             }
         case SUCCESS_DELETE_BILL:
             return {
