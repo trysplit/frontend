@@ -27,6 +27,8 @@ export default () => {
         width: 0%;
         text-align: left;
         padding: 0 2%;
+        background-color: oldlace;
+        border: 1px solid sienna;
     `;
     const BottomSection = styled.div`
         width: 100%;
@@ -47,6 +49,8 @@ export default () => {
         width: 67%;
         padding: 5px 3px;
         font-family: inherit;
+        border: 1px solid sienna;
+        background-color: oldlace;
     `;
     const Right = styled.div`
         width: 31%;
@@ -125,17 +129,19 @@ export default () => {
 
     const DayOfBill = styled.input``;
     const Edit = styled.button`
-        border: 1px solid #707070;
-        border-radius: 20px;
         padding: 5% 0;
         align-self: flex-end;
-        background-color: white;
+        border: none;
+        border-radius: 10px;
+        background-color: darkolivegreen;
+        color: white;
         width: 70%;
         margin-top: 10%;
         align-self: center;
         font-size: 1.6rem;
     `;
-    const Paid = styled.input``;
+    const Paid = styled.input`
+    `;
     return(
         <Form action="" id="youOweMe">
             <TopSection className="top-section">
@@ -151,7 +157,7 @@ export default () => {
             <BottomSection>
                 <Restaurant type="text" name="restaurant" id="restaurant" placeholder={displayedBill.restaurant}/>
                 <Bottom>
-                    <Description name="description" id="description" placeholder={displayedBill.description} cols="30" rows="10" />
+                    <Description name="description" id="description" placeholder={displayedBill.description || "Description"} cols="30" rows="10" />
                     <Right>
                         <DayOfBill type="date" name="dayOfBill" id="dayOfBill" defaultValue={displayedBill.date}/>
                         <Edit id="edit-button">Edit Bill</Edit>
