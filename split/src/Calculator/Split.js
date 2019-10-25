@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { addBill } from '../actions';
 
 
 import styled from 'styled-components'
@@ -94,14 +96,13 @@ class Split extends React.Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        bill: state.bill,
+        test: state.test
+    };
+  } ;
 
 
-
-const SplitStyle = styled.div`
-background: antiquewhite;
-
-`
-
-
-
-export default Split;
+export default connect(mapStateToProps,{addBill})(Split);
