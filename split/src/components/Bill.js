@@ -33,20 +33,17 @@ const Bill = props => {
        align-items: center;
        height: 100vh;
        background: antiquewhite;
-       img {
-           width:25rem;
-       }
-       p {
-        font-style: italic;
-        font-size: 40px;
-        margin: 0;
-       }
        button {
-           background: darkolivegreen;
-           text-emphasis-color: white;
-           border-style: none;
-           width: 8rem;
-           margin: 1rem;
+        background: #6E588A;
+        background-color: darkolivegreen;
+        margin: 0 10px 20px;
+        cursor: pointer;
+        width: 200px;
+        height: 40px;
+        font-size: 2rem;
+        border-radius: 10px;
+        color: white;
+        font-family: 'Noticia Text', serif;
        }
        .classes.modal{
        background: antiquewhite;
