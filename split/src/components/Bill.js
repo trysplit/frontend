@@ -7,7 +7,6 @@ import Fade from '@material-ui/core/Fade';
 import Split from '../components/Calculator/Split';
 import styled from 'styled-components'
 
-// import Input from 
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
+        border: '2px solid orange',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
@@ -31,6 +30,7 @@ export default function Bill() {
        justify-content: center;
        align-items: center;
        height: 100vh;
+       background: antiquewhite;
        img {
            width:25rem;
        }
@@ -40,10 +40,16 @@ export default function Bill() {
         margin: 0;
        }
        button {
-           background: #6E588A;
+           background: darkolivegreen;
+           text-emphasis-color: white;
            border-style: none;
            width: 8rem;
            margin: 1rem;
+       }
+       .classes.modal{
+       background: antiquewhite;
+
+
        }
     `;
 
