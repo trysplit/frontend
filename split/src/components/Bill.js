@@ -6,6 +6,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Split from '../components/Calculator/Split';
 import styled from 'styled-components'
+import {connect} from 'react-redux';
+import { getBill } from '../actions/bill';
 
 // import Input from 
 
@@ -23,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Bill() {
+const Bill = props => {
 
     const HomeCont = styled.div`
        display: flex;
@@ -91,3 +93,13 @@ export default function Bill() {
 
     );
 }
+
+const mapStateToProps = state => {
+    return {
+      bill: state.bill,
+      isFetching: state.isFetching,
+      error: state.error
+    };
+  };
+
+export default connect(mapStateToProps,{getBill})(Bill);
