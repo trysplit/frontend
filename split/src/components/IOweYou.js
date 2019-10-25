@@ -45,7 +45,7 @@ export default () => {
     const Restaurant = styled.p`
         font-size: 1.6rem;
         padding-bottom: 5px;
-        border-bottom: 2px solid #707070;
+        border-bottom: 2px solid sienna;
         width: 65%;
         padding: 1px 3px;
         margin-bottom: 5px;
@@ -60,7 +60,7 @@ export default () => {
     const DayOfBill = styled.p`
         font-size: 1.6rem;
         padding-bottom: 5px;
-        border-bottom: 2px solid #707070;
+        border-bottom: 2px solid sienna;
         max-width: 30%;
         width: fit-content;
         margin-bottom: 5px;
@@ -70,7 +70,7 @@ export default () => {
     const DescriptionContainer = styled.div`
         min-height: 23.2vh;
         padding: 5px 3px;
-        border: 2px solid #707070;
+        border: 2px solid sienna;
     `;
     const NoDebts = styled.h1`
         font-size: 3rem;

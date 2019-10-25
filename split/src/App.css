@@ -25,7 +25,7 @@
 .profile-info {
   display: flex;
   flex-direction: column;
-  background-color: #F0F0F0;
+  background-color: #d7c2a7;
   padding: 5% 7%;
   margin-top: 5%;
   height: 78.2%;
@@ -34,38 +34,43 @@
   padding: 1% 2%;
   margin-bottom: 5%;
   font-size: 1.2rem;
+  border: 1px solid sienna;
+  background: oldlace;
 }
-*{margin:0;padding:0; box-sizing: border-box; font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; }
-html{font-size: 62.5%; font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; }
+*{margin:0;padding:0; box-sizing: border-box; font-family: 'Noticia Text', serif; }
+html{font-size: 62.5%; font-family: 'Noticia Text', serif; }
 #youOweMe {
   width: 45%;
   height: fit-content;
-  background-color: #f0f0f0;
+  background-color: #d7c2a7;
   padding: 10px;
   margin-bottom: 5vh;
 }
 #youOweMe input {
   font-size: 1.6rem;
+  background-color: oldlace;
+  border: 1px solid sienna;
 }
 #youOweMe input[type="date"] {
   font-size: 1.2rem;
   font-family: inherit;
 }
 #youOweMe input[type="submit"] {
-  border: 1px solid #707070;
-  border-radius: 20px;
   padding: 5% 0;
   align-self: flex-end;
-  background-color: white;
   width: 70%;
   margin-top: 10%;
   align-self: center;
+  border: none;
+  border-radius: 10px;
+  background-color: darkolivegreen;
+  color: white;
 }
 
 #iOweYou {
   width: 45%;
   height: fit-content;
-  background-color: #f0f0f0;
+  background-color: #d7c2a7;
   padding: 10px;
   margin-bottom: 5vh;
 }
