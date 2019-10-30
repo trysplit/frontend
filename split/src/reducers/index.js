@@ -1,6 +1,6 @@
 import {
     ADD_BILL,
-    FETCH_BILL,
+    Add_SUCCESS,
     Add_Failure
 } from '../actions';
 
@@ -18,7 +18,7 @@ export const reducer = (state = initialState, action) => {
                 addBill: true,
                 error: ''
             }
-        case FETCH_BILL:
+        case Add_SUCCESS:
             return {
                 ...state,
                 addBill: false,
