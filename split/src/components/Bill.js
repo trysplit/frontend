@@ -36,7 +36,7 @@ export default function Bill() {
        }
        p {
         font-style: italic;
-        font-size: 40px;
+        font-size: 100px;
         margin: 0;
        }
        button {
