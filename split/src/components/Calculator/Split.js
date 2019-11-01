@@ -1,11 +1,39 @@
 import React from 'react';
 import axios from 'axios';
-// import { connect } from 'react-redux';
-// import { addBill } from '.../actions/bill';
 
 
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
+const HomeCont = styled.div`
+    margin: 0;
+    width: 30rem;
+   
+        button {
+            width: 8rem;
+            background: #6E588A;
+            background-color: darkolivegreen;
+            margin: 0 10px 20px;
+            cursor: pointer;
+            width: 200px;
+            height: 40px;
+            font-size: 2rem;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Noticia Text', serif;
+}
+form{
+            width: 60px;
+            font-family: 'Noticia Text', serif;
+}
+input{
+            font-size: 2rem;
+            placehoder{
+             font-size: 2rem;
+            }
+            type{
+                font-size: 2rem;
+            }
+`
 
 class Split extends React.Component {
     constructor() {
@@ -50,59 +78,55 @@ class Split extends React.Component {
 
     render() {
         return (
-            <div className='split' >
-                <form onSubmit={(event) => this.splitBill(event, this.state.total, this.state.numberOfFriends)}>
-                    <input
-                        placeholder="Enter Resturant"
-                        type='text'
-                        name='resturant'
-                        value={this.state.bill.resturant}
-                        onChange={this.handleChange}
-                    />
+            <HomeCont>
 
-                    <input
-                        step='any'
-                        placeholder='Number of Friends'
-                        name='numberOfFriends'
-                        type='number'
-                        value={this.state.bill.numberOfFriends}
-                        onChange={this.handleChange}
-                    />
+                <div className='split' >
+                    <form onSubmit={(event) => this.splitBill(event, this.state.total, this.state.numberOfFriends)}>
+                        <input
+                            placeholder="Enter Resturant"
+                            type='text'
+                            name='resturant'
+                            value={this.state.bill.resturant}
+                            onChange={this.handleChange}
+                        />
 
-                    <input
-                        step='any'
-                        placeholder='Bill Total'
-                        name='total'
-                        type='number'
-                        value={this.state.bill.total}
-                        onChange={this.handleChange}
-                    />
+                        <input
+                            step='any'
+                            placeholder='Number of Friends'
+                            name='numberOfFriends'
+                            type='number'
+                            value={this.state.bill.numberOfFriends}
+                            onChange={this.handleChange}
+                        />
 
-
-                    <input
-                        step='any'
-                        placeholder='Balanced owed by Each'
-                        name='split'
-                        type='number'
-                        value={this.state.bill.total / this.state.bill.numberOfFriends}
-                        onChange={this.handleChange}
-                    />
-                    <button className='splitButton' type='submit'> Split the Bill!</button>
+                        <input
+                            step='any'
+                            placeholder='Bill Total'
+                            name='total'
+                            type='number'
+                            value={this.state.bill.total}
+                            onChange={this.handleChange}
+                        />
 
 
-                </form>
+                        <input
+                            step='any'
+                            placeholder='Balanced owed by Each'
+                            name='split'
+                            type='number'
+                            value={this.state.bill.total / this.state.bill.numberOfFriends}
+                            onChange={this.handleChange}
+                        />
+                        <button className='splitButton' type='submit'> Split the Bill!</button>
 
-            </div>
+
+                    </form>
+
+                </div>
+            </HomeCont>
+
         )
     }
 }
-// const mapStateToProps = state => {
-//     return {
-//         isLoading: state.isLoading,
-//         bill: state.bill,
-//         test: state.test
-//     };
-//   } ;
-
 
 export default Split;
